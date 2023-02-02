@@ -2,25 +2,29 @@ import React from 'react'
 import { useState } from 'react';
 import { useEffect } from 'react';
 import Loader from '../Loader/Loader';
+import Pagination from '../Pagination/Pagination';
 
 export default function ProductPage() {
 
   const [data,SetData] = useState([])
   const [loader,SetLoader] = useState(true);
+  const [page,SetPage] = useState(1)
+  const [totalpage,SetTotalPage] = useState(1);
   
 
   const fetchProducts =async ()=> {
 
-      let res = await fetch(`https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-products`);
+      let res = await fetch(`https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-products?page=${page}&limit=12`);
       let data = await res.json();
       console.log(data);
       SetLoader(false);
       SetData(data.data);
+      SetTotalPage(data.totalPages)
   }
 
   useEffect(()=> {
        fetchProducts();
-  },[])
+  },[page])
 
 
   
@@ -35,7 +39,7 @@ export default function ProductPage() {
                 <div key={i}>
                    <div style={{textAlign:"center",boxShadow:"0 0 10px black",padding:"10px 10px 10px 10px "}}>
                       <img src={ele.image}/>
-                      <h4 style={{color:"Crimson"}}>Name : {ele.title}</h4>
+                       <h4 style={{color:"Crimson"}}>Name : {ele.title}</h4>
                        <h5>Brand : {ele.brand}</h5>
                        <h5> Category : {ele.category}</h5>
                        <h5>Price : {ele.price}</h5>
@@ -48,6 +52,8 @@ export default function ProductPage() {
         }
 
     </div>
+
+     <Pagination currentPage={page} totalPages={totalpage} handleChangePage={(page)=>SetPage(page)}/>
 
   </>
   )
