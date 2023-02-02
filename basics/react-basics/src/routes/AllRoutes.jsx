@@ -1,14 +1,15 @@
 import React from 'react'
 import { Routes,Route } from 'react-router-dom'
-import Navbar from '../components/Navbar'
-import CartPage from './CartPage'
-import OrdersPage from './OrdersPage'
-import ProductDetailsPage from './ProductDetailsPage'
-import ProductPage from './ProductPage'
+import Navbar from '../components/Navbar/Navbar'
+import CartPage from '../components/CartPage/CartPage'
+import OrdersPage from '../components/OrdersPage/OrdersPage'
+import ProductDetailsPage from '../components/ProductDetailsPage/ProductDetailsPage'
+import ProductPage from '../components/ProductPage/ProductPage'
 export default function AllRoutes() {
   return (
     <div>
           <Navbar/>
+          {/* <ProductPage/> */}
         <Routes>
              <Route path="/" element={<ProductPage/>} />
              <Route path='/product/:id' element={<ProductDetailsPage/>} />
