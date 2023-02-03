@@ -1,4 +1,4 @@
-
+import '../Pagination/Pagination.module.css'
 function Pagination({ totalPages, currentPage, handleChangePage }) {
 
     return (

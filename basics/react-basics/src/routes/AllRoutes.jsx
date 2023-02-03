@@ -9,7 +9,6 @@ export default function AllRoutes() {
   return (
     <div>
           <Navbar/>
-          {/* <ProductPage/> */}
         <Routes>
              <Route path="/" element={<ProductPage/>} />
              <Route path='/product/:id' element={<ProductDetailsPage/>} />

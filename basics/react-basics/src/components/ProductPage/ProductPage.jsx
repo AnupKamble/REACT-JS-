@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import Loader from '../Loader/Loader';
 import Pagination from '../Pagination/Pagination';
+import { NavLink } from 'react-router-dom'
 
 export default function ProductPage() {
 
@@ -39,7 +40,7 @@ export default function ProductPage() {
                 <div key={i}>
                    <div style={{textAlign:"center",boxShadow:"0 0 10px black",padding:"10px 10px 10px 10px "}}>
                       <img src={ele.image}/>
-                       <h4 style={{color:"Crimson"}}>Name : {ele.title}</h4>
+                    <NavLink to = {`/Product/${ele.id}`} >  <h4 style={{color:"Crimson"}}>Name : {ele.title}</h4></NavLink>
                        <h5>Brand : {ele.brand}</h5>
                        <h5> Category : {ele.category}</h5>
                        <h5>Price : {ele.price}</h5>
