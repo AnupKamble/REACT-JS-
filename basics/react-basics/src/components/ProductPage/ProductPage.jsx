@@ -13,7 +13,7 @@ export default function ProductPage() {
   const [totalpage,SetTotalPage] = useState(1);
   
 
-  const fetchProducts =async ()=> {
+  const fetchProducts = async ()=> {
 
       let res = await fetch(`https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-products?page=${page}&limit=12`);
       let data = await res.json();
