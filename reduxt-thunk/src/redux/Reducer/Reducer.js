@@ -15,7 +15,7 @@ const data = {
 }
 
 
-const myReducer = ( state = data,{type,payload})=> {
+const myReducer = ( state = data, {type,payload})=> {
 
   switch (type) {
 
