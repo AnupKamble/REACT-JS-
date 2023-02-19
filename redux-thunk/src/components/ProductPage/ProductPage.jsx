@@ -4,6 +4,9 @@ import { useEffect } from 'react';
 import Loader from '../Loader/Loader';
 import Pagination from '../Pagination/Pagination';
 import { NavLink } from 'react-router-dom'
+import {useDispatch,useSelector} from 'react-redux'
+import { myAction } from '../../Redux/Action/Action';
+
 
 export default function ProductPage() {
 
@@ -12,12 +15,16 @@ export default function ProductPage() {
   const [page,SetPage] = useState(1)
   const [totalpage,SetTotalPage] = useState(1);
   
+ 
+const dispatch = useDispatch();
+const store = useSelector((stat)=> stat)
 
   const fetchProducts = async ()=> {
 
       let res = await fetch(`https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-products?page=${page}&limit=12`);
       let data = await res.json();
-      console.log(data);
+      // console.log(data);
+      dispatch(myAction(data))
       SetLoader(false);
       SetData(data.data);
       SetTotalPage(data.totalPages)
