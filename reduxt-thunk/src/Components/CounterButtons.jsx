@@ -3,14 +3,14 @@
 
 import React from 'react'
 
-export default function CounterButtons() {
+export default function CounterButtons({Add,Reduce}) {
 
 
   return (
     <div>
 
-        <button>Add</button>
-        <button>Reduce</button>
+        <button onClick={Add}>Add</button>
+        <button onClick={Reduce}>Reduce</button>
       
     </div>
   )
