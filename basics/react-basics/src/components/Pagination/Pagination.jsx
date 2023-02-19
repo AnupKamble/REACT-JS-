@@ -9,7 +9,7 @@ function Pagination({ totalPages, currentPage, handleChangePage }) {
           <button key={a}
                   disabled={a === currentPage}
                   onClick={() => { handleChangePage(a)}}
-                  style={currentPage == a ? { border: "1px solid purple" } : null}
+                  style={currentPage === a ? { border: "1px solid purple" } : null}
 
           >  {a} </button>
         ))
