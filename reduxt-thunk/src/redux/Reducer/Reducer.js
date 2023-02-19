@@ -11,18 +11,19 @@ import { Add,Reduce } from "../Action/Actiontypes"
 
 
 const data = {
-    counter : 1,
+    counter : 50,                     // - initial data;
 }
 
 
-const myReducer = ( state = data, {type,payload})=> {
+const myReducer = ( state = data, {type,payload})=> {        //  - pass initial data and
+                                                             //  -  payload takes automatically from dispatch
 
   switch (type) {
 
     case Add : 
     return {
         ...state,
-        counter : state.counter + payload,
+        counter : state.counter + payload,          
     }
 
     case Reduce : 
