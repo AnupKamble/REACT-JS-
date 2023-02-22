@@ -2,7 +2,8 @@ import React, { useEffect } from 'react'
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Loader from '../Loader/Loader';
-
+import {useDispatch,useSelector} from 'react-redux'
+import { myAction } from '../../Redux/Action/Action';
 
 export default function ProductDetailsPage() {
        
@@ -10,6 +11,11 @@ export default function ProductDetailsPage() {
   const [data,SetData] = useState([]);
   const [loader,SetLoader] = useState(true);
      
+  const dispatch = useDispatch();
+
+  const detailsData = useSelector((singledata)=>singledata)
+  console.log(detailsData);
+  
      const displayProducts= async ()=> {
 
       let res = await fetch(`https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-products/${id}`);
@@ -17,7 +23,7 @@ export default function ProductDetailsPage() {
 
         // console.log(data);
         SetLoader(false);
-        SetData(data.data)
+        dispatch(myAction(data.data))
      }
 
      useEffect(()=> {
