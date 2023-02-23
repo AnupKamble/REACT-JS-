@@ -21,7 +21,7 @@ export default function ProductDetailsPage() {
       let res = await fetch(`https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-products/${id}`);
       let data = await res.json();
 
-        // console.log(data);
+        console.log(data);
         SetLoader(false);
         dispatch(myAction(data.data))
      }
