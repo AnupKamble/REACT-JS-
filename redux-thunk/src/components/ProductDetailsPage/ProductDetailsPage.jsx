@@ -14,7 +14,7 @@ export default function ProductDetailsPage() {
   const dispatch = useDispatch();
 
   const detailsData = useSelector((singledata)=>singledata)
-  console.log(detailsData);
+  // console.log(detailsData);
   
      const displayProducts= async ()=> {
 
