@@ -16,17 +16,19 @@ export default function ProductPage() {
   const [totalpage,SetTotalPage] = useState(1);
   
  
-const dispatch = useDispatch();
-const store = useSelector((stat)=> stat.payload)
+
+const store = useSelector((stat)=> stat)
    console.log(store)
+   const dispatch = useDispatch();
+   
   const fetchProducts = async ()=> {
 
       let res = await fetch(`https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-products?page=${page}&limit=12`);
       let data = await res.json();
-      // console.log(data);
+      console.log(data);
       dispatch(myAction(data.data))
       SetLoader(false);
-      // SetData(data.data);
+      SetData(data.data);
       SetTotalPage(data.totalPages)
   }
 
