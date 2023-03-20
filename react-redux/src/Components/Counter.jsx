@@ -14,7 +14,7 @@ export default function Counter() {
       const forceUpdate =()=> {
         setState(prev=> prev+1);
       }
-      console.log(state)
+      // console.log(state)
 
     const Add =()=> {
         dispatch(handleAdd(1));  //  - if pass 5 then counter will add or reduce by 5
